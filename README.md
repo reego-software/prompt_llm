@@ -1,7 +1,7 @@
 # prompt_llm
 
 ## Version
-0.1.0
+0.1.2
 
 - Prompt LLMs via cli
 
@@ -20,15 +20,16 @@
 - `source ~/.bashrc`
 
 ## Config:
-- Supported configs: `--system`, `--temperature`, `--api-key`
+- Supported configs: `--api-key`, `model`, `--system`, `--temperature`
 
 ### Set Config
 - `add_config  --api-key "<api_key>" --system "<system_messgae>" --temperature <temperature>`
 
 ### Remove Config:
-
 - `prompt_llm rm-config temperature`
 
+### View Config:
+- `prompt_llm view-config`
 
 ## Run cli
 - `prompt_llm openai "Tell me something"`

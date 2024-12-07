@@ -46,3 +46,11 @@ def load_config():
             app_config = json.load(file)
 
     return app_config
+
+
+def print_response(response, provider):
+
+    print(f"{provider}:\n---\n")
+
+    if hasattr(response, "content"):
+        print(response.content)

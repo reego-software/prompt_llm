@@ -5,7 +5,8 @@ build-backend = "hatchling.build"
 [project]
 name = "prompt_llm"
 dynamic = ["version"]
-dependencies = ["typer", "langchain-core", "langchain-openai", "langchain-mistralai"]
+dependencies = ["typer", "langchain-core", "langchain-openai", "langchain-mistralai", "langchain-google-vertexai", "langchain-cohere", "langchain-nvidia-ai-endpoints", "langchain-fireworks", "langchain-groq"]
+
 authors = [
   { name="Hasan YILMAZ", email="yilmazhasan111@gmail.com" },
 ]
