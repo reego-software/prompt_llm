@@ -1,7 +1,7 @@
 # prompt_llm
 
 ## Version
-0.1.2
+0.1.3
 
 - Prompt LLMs via cli
 
