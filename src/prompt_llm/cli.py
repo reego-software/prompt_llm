@@ -2,6 +2,7 @@
 
 import typer
 import json
+import os
 
 from .utils import add_to_config, remove_from_config, load_config
 from .langchain_util import call
@@ -48,6 +49,20 @@ def openai(prompt: str):
         response = call(prompt, app_config)
 
         print(response.content)
+
+
+@app.command()
+def version():
+    """Retrieve the version from the __init__.py file."""
+    package_dir = os.path.dirname(os.path.abspath(__file__))
+    init_file = os.path.join(package_dir, '__init__.py')
+
+    with open(init_file, 'r') as file:
+        for line in file:
+            if line.startswith('__version__'):
+                # Extract version from the line
+                version = line.split('=')[-1].strip().strip('"').strip("'")
+                print(version)
 
 if __name__ == "__main__":
     app()

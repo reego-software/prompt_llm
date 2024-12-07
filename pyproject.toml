@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "prompt_llm"
-version = "0.0.4"
+dynamic = ["version"]
 dependencies = ["typer", "langchain-core", "langchain-openai", "langchain-mistralai"]
 authors = [
   { name="Hasan YILMAZ", email="yilmazhasan111@gmail.com" },
@@ -24,3 +24,6 @@ Issues = "https://github.com/reego-software/prompt_llm/issues"
 
 [project.scripts]
 prompt_llm = "prompt_llm.cli:app"
+
+[tool.hatch.version]
+path = "src/prompt_llm/__init__.py"
