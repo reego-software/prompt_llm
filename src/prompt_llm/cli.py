@@ -11,6 +11,7 @@ app = typer.Typer()
 
 @app.command()
 def add_config(api_key: str='', system: str = '', temperature:float = None):
+    """To set a config"""
     if api_key:
         add_to_config('api_key', api_key)
 
@@ -21,12 +22,14 @@ def add_config(api_key: str='', system: str = '', temperature:float = None):
         add_to_config('temperature', temperature)
 
 @app.command()
-def rm_config(key: str):    
+def rm_config(key: str):
+    """To unset a config"""
     remove_from_config(key)
 
 
 @app.command()
 async def mistralai(prompt: str):
+    """Tool to prompt mistralai"""
     app_config = load_config()
 
     if prompt:
@@ -53,7 +56,7 @@ def openai(prompt: str):
 
 @app.command()
 def version():
-    """Retrieve the version from the __init__.py file."""
+    """Retrieve the version"""
     package_dir = os.path.dirname(os.path.abspath(__file__))
     init_file = os.path.join(package_dir, '__init__.py')
 

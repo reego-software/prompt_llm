@@ -29,6 +29,15 @@
 
 - `prompt_llm rm-config temperature`
 
+
 ## Run cli
 - `prompt_llm openai "Tell me something"`
 
+
+## To contribute
+
+### 1. Build project
+`python -m build`
+
+### 2. Upload
+`python3 -m twine upload --repository pypi dist/* --verbose`
