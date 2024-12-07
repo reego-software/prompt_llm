@@ -26,6 +26,11 @@ def rm_config(key: str):
     """To unset a config"""
     remove_from_config(key)
 
+@app.command()
+def view_config():
+    """To view config"""
+    config = load_config()
+    print(json.dumps(config, sort_keys=True, indent=4))
 
 @app.command()
 async def mistralai(prompt: str):
