@@ -8,9 +8,9 @@ dynamic = ["version"]
 dependencies = ["typer", "langchain-core", "langchain-openai", "langchain-mistralai", "langchain-google-vertexai", "langchain-cohere", "langchain-nvidia-ai-endpoints", "langchain-fireworks", "langchain-groq"]
 
 authors = [
-  { name="Hasan YILMAZ", email="yilmazhasan111@gmail.com" },
+  { name="Reego Software", email="reego.software@gmail.com" },
 ]
-description = "A CLI tool to prompt LLMs"
+description = "A CLI tool to prompt LLMs by reego.software"
 readme = "README.md"
 requires-python = ">=3.8"
 classifiers = [

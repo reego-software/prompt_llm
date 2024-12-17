@@ -20,16 +20,23 @@
 - `source ~/.bashrc`
 
 ## Config:
-- Supported configs: `--api-key`, `model`, `--system`, `--temperature`
+- Supported configs: `--api-key`, `--model`, `--system`, `--temperature`
 
 ### Set Config
-- `add_config  --api-key "<api_key>" --system "<system_messgae>" --temperature <temperature>`
+- `prompt_llm config_add  --api-key "<api_key>" --system "<system_messgae>" --temperature <temperature>`
 
-### Remove Config:
-- `prompt_llm rm-config temperature`
+### Save current config to a profile
+- `prompt_llm config_save_to --profile="openai"`
+
+### Load the config from a profile
+- `prompt_llm config_load_from --profile="openai"`
+
+### Remove Config key:
+- `prompt_llm config-rm temperature`
 
 ### View Config:
-- `prompt_llm view-config`
+- `prompt_llm config-ls`
+- `prompt_llm config-ls --profile="openai"`
 
 ## Run cli
 - `prompt_llm openai "Tell me something"`

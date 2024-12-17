@@ -4,7 +4,7 @@ import typer
 import json
 import os
 
-from .utils import add_to_config, remove_from_config, load_config, print_response
+from .utils import add_to_config, remove_from_config, load_config, save_config_to, load_config_from, remove_profile, load_profiles, print_response
 from .langchain_util import call
 from .constants import OPENAI, MISTRALAI, ANTHROPIC, GOOGLE, COHERE, NVIDIA, FIREWORKS, GROQ, TOGETHER
 
@@ -24,7 +24,7 @@ def version():
                 print(version)
 
 @app.command()
-def config(api_key: str='', model: str='', system: str = '', temperature:float = None):
+def config_add(api_key: str='', model: str='', system: str = '', temperature:float = None):
     """To set a config"""
     if api_key:
         add_to_config('api_key', api_key)
@@ -47,13 +47,51 @@ def config(api_key: str='', model: str='', system: str = '', temperature:float =
 @app.command()
 def config_rm(key: str):
     """To unset a config"""
-    remove_from_config(key)
+    if remove_from_config(key):
+        print(f"{key} has been removed from current config.")
 
 @app.command()
-def config_ls():
+def config_ls(profile: str = ''):
     """To view config"""
-    config = load_config()
+    config = load_config(profile)
     print(json.dumps(config, sort_keys=True, indent=4))
+
+@app.command()
+def config_save_to(profile: str=''):
+    """To save a config to a profile"""
+    if profile:
+        if save_config_to(profile):
+            print("Config has been saved successfully!")
+        else:
+            print("Error on saving config!")
+    else:
+        print("No profile has been provided!")
+
+
+@app.command()
+def config_load_from(profile: str=''):
+    """To load a config from a saved profile"""
+    if profile:
+        if load_config_from(profile):
+            print(f"Config has been loaded successfully from {profile}.")
+        else:
+            print(f"Error on loading config from {profile}.")
+    else:
+        print("No profile has been provided!")
+
+
+@app.command()
+def profile_ls():
+    """To view config"""
+    profiles = load_profiles()
+    print(json.dumps(profiles, sort_keys=True, indent=4))
+
+
+@app.command()
+def profile_rm(profile: str):
+    """To unset a config"""
+    if remove_profile(profile):
+        print(f"{profile} has been removed from current config.")
 
 @app.command()
 async def mistralai(prompt: str):
